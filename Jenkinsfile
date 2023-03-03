@@ -1,7 +1,7 @@
 pipeline{
   agent any
   stages {
-    stage('probva web'){
+    stage('prova web'){
       steps{
         sh 'echo ciao'
       }

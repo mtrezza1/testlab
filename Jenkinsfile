@@ -1,24 +1,20 @@
-pipeline{
+pipeline {
   agent any
   stages {
-    stage('prova web'){
-      steps{
-        sh 'echo ciao'
+    stage('check'){
+      steps {
+        sh 'ls -l'
       }
     }
-    stage('ls'){
-      steps{
-        sh 'ls -l'
+    stage('build'){
+      steps {
+        sh 'docker build -t image-github .'
+        sh 'docker images'
       }
     }
     stage('run'){
-      steps{
-        sh '/bin/bash script.sh'
-      }
-    }
-    stage('ls post'){
-      steps{
-        sh 'ls -l'
+      steps {
+        sh 'docker run -d --name cont-prova image-github'
       }
     }
   }

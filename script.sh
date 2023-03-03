@@ -1,1 +1,1 @@
-
+mkdir a b c
